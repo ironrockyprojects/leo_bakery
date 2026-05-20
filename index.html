@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEO BAKERY – Fresh & Handcrafted</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --yellow:#F5C518; --yellow-light:#FFF3B0; --yellow-dark:#D4A017;
+      --green:#4A7C59; --green-light:#7FB88A; --green-dark:#2E5339;
+      --white:#FFFFFF; --cream:#FFFDF5; --text:#2B2B2B; --gray:#888;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+    nav{background:var(--white);display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:70px;box-shadow:0 2px 12px rgba(0,0,0,0.07);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--green-dark);letter-spacing:1px;text-decoration:none;}
+    .logo span{color:var(--yellow-dark);}
+    nav ul{list-style:none;display:flex;gap:36px;}
+    nav ul a{text-decoration:none;color:var(--text);font-weight:700;font-size:0.9rem;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+    nav ul a:hover{color:var(--green);}
+    .nav-btn{background:var(--yellow);color:var(--green-dark)!important;padding:8px 20px;border-radius:50px;}
+    .nav-btn:hover{background:var(--yellow-dark);color:white!important;}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,var(--yellow-light) 0%,var(--cream) 60%,#e8f5ec 100%);padding:80px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;min-height:480px;position:relative;overflow:hidden;}
+    .hero::before{content:'☕';position:absolute;font-size:18rem;opacity:0.04;right:-40px;top:-40px;pointer-events:none;}
+    .hero-text h1{font-family:'Playfair Display',serif;font-size:3.6rem;font-weight:900;line-height:1.1;color:var(--green-dark);margin-bottom:18px;}
+    .hero-text h1 span{color:var(--yellow-dark);}
+    .hero-text p{font-size:1.1rem;color:#555;max-width:480px;line-height:1.7;margin-bottom:30px;}
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+    .btn-primary{background:var(--green);color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:background 0.2s,transform 0.15s;display:inline-block;}
+    .btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);}
+    .btn-outline{border:2px solid var(--yellow-dark);color:var(--yellow-dark);padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:all 0.2s;display:inline-block;}
+    .btn-outline:hover{background:var(--yellow);color:var(--green-dark);}
+    .hero-badge{background:var(--white);border:2px solid var(--yellow);border-radius:20px;padding:30px 40px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.08);min-width:220px;}
+    .hero-badge .big{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--yellow-dark);font-weight:900;}
+    .hero-badge p{color:var(--green);font-weight:700;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;}
+
+    /* SECTION TITLE */
+    .section-title{text-align:center;padding:60px 20px 10px;}
+    .section-title h2{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--green-dark);}
+    .section-title p{color:var(--gray);margin-top:10px;font-size:1rem;}
+    .divider{width:60px;height:4px;background:var(--yellow);border-radius:4px;margin:14px auto 0;}
+
+    /* MENU GRID */
+    .menu{padding:40px 60px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px;max-width:1200px;margin:0 auto;}
+    .card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.07);transition:transform 0.25s,box-shadow 0.25s;text-decoration:none;color:inherit;display:block;}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.13);}
+    .card-img{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;background:var(--yellow-light);}
+    .badge-tag{position:absolute;top:12px;right:12px;background:var(--green);color:white;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:0.5px;text-transform:uppercase;}
+    .card-body{padding:18px 20px 22px;}
+    .card-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;color:var(--green-dark);}
+    .card-body p{font-size:0.85rem;color:var(--gray);line-height:1.5;margin-bottom:14px;}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;}
+    .price{font-weight:900;font-size:1.1rem;color:var(--yellow-dark);}
+    .add-btn{background:var(--yellow);border:none;width:32px;height:32px;border-radius:50%;font-size:1.2rem;cursor:pointer;color:var(--green-dark);font-weight:900;transition:background 0.2s;display:flex;align-items:center;justify-content:center;}
+    .add-btn:hover{background:var(--yellow-dark);color:white;}
+
+    /* BANNER */
+    .banner{background:linear-gradient(90deg,var(--green-dark),var(--green));color:white;padding:50px 60px;text-align:center;}
+    .banner h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px;}
+    .banner p{opacity:0.85;margin-bottom:24px;font-size:1rem;}
+
+    /* FOOTER */
+    footer{background:var(--green-dark);color:rgba(255,255,255,0.7);padding:50px 60px 30px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+    footer h4{font-family:'Playfair Display',serif;color:white;font-size:1.1rem;margin-bottom:14px;}
+    footer p,footer a{font-size:0.88rem;line-height:1.8;color:rgba(255,255,255,0.65);text-decoration:none;display:block;}
+    footer a:hover{color:var(--yellow);}
+    .footer-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+    @media(max-width:768px){
+      nav{padding:0 20px;} nav ul{display:none;}
+      .hero{flex-direction:column;padding:50px 20px;text-align:center;}
+      .hero-text h1{font-size:2.4rem;}
+      .hero-btns{justify-content:center;}
+      .menu{padding:30px 20px 60px;}
+      footer{grid-template-columns:1fr;padding:30px 20px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LEO <span>BAKERY</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-btn">Order Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Baked with <span>Love</span>,<br/>Served with Warmth</h1>
+    <p>Welcome to LEO BAKERY — where every sip and bite is crafted with the finest ingredients and a whole lot of heart.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Explore Our Menu</a>
+      <a href="#" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="big">12+</div>
+    <p>Years of<br/>Sweet Magic</p>
+  </div>
+</section>
+
+<div class="section-title" id="menu">
+  <h2>Our Specialties</h2>
+  <p>Handcrafted treats made fresh every morning</p>
+  <div class="divider"></div>
+</div>
+
+<div class="menu">
+
+  <a href="coffee.html" class="card">
+    <div class="card-img" style="background:#FFF3B0;">☕<span class="badge-tag">Popular</span></div>
+    <div class="card-body">
+      <h3>Signature Coffee</h3>
+      <p>Rich espresso with velvety steamed milk and a hint of caramel.</p>
+      <div class="card-footer"><span class="price">₹120</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+  <a href="puffs.html" class="card">
+    <div class="card-img" style="background:#FFF3E0;">🥐<span class="badge-tag">New</span></div>
+    <div class="card-body">
+      <h3>Butter Puffs</h3>
+      <p>Flaky golden pastry puffs with a soft cream filling inside.</p>
+      <div class="card-footer"><span class="price">₹85</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+  <a href="tea.html" class="card">
+    <div class="card-img" style="background:#F0FFF4;">🍵</div>
+    <div class="card-body">
+      <h3>Garden Tea</h3>
+      <p>Premium Darjeeling tea served warm with honey and lemon.</p>
+      <div class="card-footer"><span class="price">₹65</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+  <a href="cake.html" class="card">
+    <div class="card-img" style="background:#FFF0F6;">🎂<span class="badge-tag">Chef's Pick</span></div>
+    <div class="card-body">
+      <h3>Celebration Cake</h3>
+      <p>Moist layered cake with whipped cream and fresh fruit toppings.</p>
+      <div class="card-footer"><span class="price">₹350</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+  <a href="muffin.html" class="card">
+    <div class="card-img" style="background:#FFFBF0;">🧁</div>
+    <div class="card-body">
+      <h3>Blueberry Muffin</h3>
+      <p>Soft muffins packed with blueberries and a crunchy sugar top.</p>
+      <div class="card-footer"><span class="price">₹95</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+  <a href="sandwich.html" class="card">
+    <div class="card-img" style="background:#F5FFF0;">🥪</div>
+    <div class="card-body">
+      <h3>Club Sandwich</h3>
+      <p>Triple-decker with fresh veggies, cheese and herb mayo.</p>
+      <div class="card-footer"><span class="price">₹160</span><button class="add-btn">+</button></div>
+    </div>
+  </a>
+
+</div>
+
+<section class="banner">
+  <h2>🌿 Fresh. Local. Honest.</h2>
+  <p>All our ingredients are sourced from local farmers and baked in-house every morning.</p>
+  <a href="#menu" class="btn-primary" style="display:inline-block;">Browse Full Menu</a>
+</section>
+
+<footer>
+  <div>
+    <h4>LEO BAKERY</h4>
+    <p>A cozy corner where great coffee meets freshly baked goodness. We believe food brings people together.</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <a href="index.html">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div>
+  <div>
+    <h4>Visit Us</h4>
+    <p>📍 12 Baker Street, Tiruppur</p>
+    <p>⏰ Mon–Sat: 7am – 9pm</p>
+    <p>📞 +91 98765 43210</p>
+  </div>
+  <div class="footer-bottom">© 2026 LEO BAKERY. All rights reserved. Made with ❤️ and flour.</div>
+</footer>
+
+</body>
+</html>

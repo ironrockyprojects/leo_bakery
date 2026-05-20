@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEO BAKERY – Butter Puffs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--yellow:#F5C518;--yellow-light:#FFF3B0;--yellow-dark:#D4A017;--green:#4A7C59;--green-light:#7FB88A;--green-dark:#2E5339;--white:#FFFFFF;--cream:#FFFDF5;--text:#2B2B2B;--gray:#888;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{background:var(--white);display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:70px;box-shadow:0 2px 12px rgba(0,0,0,0.07);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--green-dark);letter-spacing:1px;text-decoration:none;}
+    .logo span{color:var(--yellow-dark);}
+    nav ul{list-style:none;display:flex;gap:36px;}
+    nav ul a{text-decoration:none;color:var(--text);font-weight:700;font-size:0.9rem;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+    nav ul a:hover{color:var(--green);}
+    .nav-btn{background:var(--yellow);color:var(--green-dark)!important;padding:8px 20px;border-radius:50px;}
+    .nav-btn:hover{background:var(--yellow-dark);color:white!important;}
+    .back-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--green);font-weight:700;font-size:0.9rem;transition:gap 0.2s;}
+    .back-link:hover{gap:14px;}
+    footer{background:var(--green-dark);color:rgba(255,255,255,0.7);padding:50px 60px 30px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+    footer h4{font-family:'Playfair Display',serif;color:white;font-size:1.1rem;margin-bottom:14px;}
+    footer p,footer a{font-size:0.88rem;line-height:1.8;color:rgba(255,255,255,0.65);text-decoration:none;display:block;}
+    footer a:hover{color:var(--yellow);}
+    .footer-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.4);}
+    .breadcrumb{padding:16px 60px;font-size:0.85rem;color:var(--gray);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+
+    .detail{max-width:980px;margin:0 auto;padding:20px 50px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+    .item-visual{border-radius:24px;height:380px;display:flex;align-items:center;justify-content:center;font-size:9rem;box-shadow:0 8px 32px rgba(0,0,0,0.08);position:relative;overflow:hidden;}
+    .item-visual::after{content:'';position:absolute;bottom:-30px;right:-30px;width:160px;height:160px;background:rgba(255,255,255,0.3);border-radius:50%;}
+    .item-info h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--green-dark);margin-bottom:10px;}
+    .stars{color:var(--yellow-dark);font-size:1.1rem;margin-bottom:16px;}
+    .item-price{font-size:2rem;font-weight:900;color:var(--yellow-dark);margin-bottom:20px;}
+    .item-desc{font-size:1rem;color:#555;line-height:1.8;margin-bottom:24px;}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
+    .tag{background:var(--green-light);color:white;padding:5px 14px;border-radius:50px;font-size:0.78rem;font-weight:700;}
+    .tag.y{background:var(--yellow);color:var(--green-dark);}
+    .qty-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+    .qty-btn{background:var(--yellow-light);border:2px solid var(--yellow);width:38px;height:38px;border-radius:50%;font-size:1.3rem;font-weight:900;cursor:pointer;color:var(--green-dark);transition:background 0.2s;display:flex;align-items:center;justify-content:center;}
+    .qty-btn:hover{background:var(--yellow);}
+    .qty-num{font-size:1.2rem;font-weight:700;min-width:30px;text-align:center;}
+    .order-btn{width:100%;padding:16px;background:var(--green);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:0.5px;transition:background 0.2s,transform 0.15s;margin-bottom:12px;}
+    .order-btn:hover{background:var(--green-dark);transform:translateY(-2px);}
+    .info-box{max-width:980px;margin:0 auto 20px;padding:0 50px;}
+    .info-card{background:var(--white);border-radius:20px;padding:30px 36px;box-shadow:0 4px 18px rgba(0,0,0,0.06);}
+    .info-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark);margin-bottom:18px;}
+    .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+    .info-item .val{display:block;font-size:1.5rem;font-weight:900;color:var(--yellow-dark);}
+    .info-item .lbl{display:block;font-size:0.78rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+    .reviews{max-width:980px;margin:0 auto 30px;padding:0 50px;}
+    .reviews h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark);margin-bottom:16px;}
+    .review-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .review-card{background:var(--white);border-radius:16px;padding:20px;box-shadow:0 3px 12px rgba(0,0,0,0.06);}
+    .review-card p{font-size:0.9rem;color:#555;line-height:1.6;margin-bottom:10px;}
+    .reviewer{font-size:0.8rem;font-weight:700;color:var(--green);}
+    .secret-zone{max-width:980px;margin:0 auto;padding:10px 50px 60px;display:flex;justify-content:flex-end;}
+    .event-btn{background:transparent;border:1px solid #ddd;color:#ccc;font-size:0.62rem;padding:4px 11px;border-radius:4px;cursor:pointer;letter-spacing:0.3px;transition:all 0.3s;font-family:'Lato',sans-serif;}
+    .event-btn:hover{border-color:var(--green-light);color:var(--green);}
+    @media(max-width:768px){
+      nav{padding:0 20px;} nav ul{display:none;}
+      .detail{grid-template-columns:1fr;padding:20px;gap:30px;}
+      .info-grid{grid-template-columns:repeat(2,1fr);}
+      .review-list{grid-template-columns:1fr;}
+      .reviews,.info-box,.secret-zone{padding-left:20px;padding-right:20px;}
+      .breadcrumb{padding:12px 20px;}
+      footer{grid-template-columns:1fr;padding:30px 20px;}
+    }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LEO <span>BAKERY</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-btn">Order Now</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> › <a href="index.html#menu">Menu</a> › Butter Puffs
+</div>
+
+<div class="detail">
+  <div class="item-visual" style="background:#FFF3E0;">🥐</div>
+  <div class="item-info">
+    <h1>Butter Puffs</h1>
+    <div class="stars">★★★★★ <span style="color:#aaa;font-size:0.85rem;">(128 reviews)</span></div>
+    <div class="item-price">₹85</div>
+    <p class="item-desc">Our Butter Puffs are flaky, golden pastry puffs made with 100% pure butter dough, layered over 72 hours and baked fresh every morning. Each puff is filled with a lightly sweetened cream that melts in your mouth — a true continental delight.</p>
+    <div class="tags"><span class="tag y">Baked Fresh</span><span class="tag ">Vegetarian</span><span class="tag y">Morning Pick</span><span class="tag ">Oven Hot</span></div>
+    <div class="qty-row">
+      <button class="qty-btn" onclick="changeQty(-1)">−</button>
+      <span class="qty-num" id="qty">1</span>
+      <button class="qty-btn" onclick="changeQty(1)">+</button>
+    </div>
+    <button class="order-btn">🛒 Add to Order</button>
+  </div>
+</div>
+
+<div class="info-box">
+  <div class="info-card">
+    <h3>Serving Details</h3>
+    <div class="info-grid"><div class="info-item"><span class="val">210</span><span class="lbl">Calories</span></div><div class="info-item"><span class="val">3g</span><span class="lbl">Protein</span></div><div class="info-item"><span class="val">22g</span><span class="lbl">Carbs</span></div><div class="info-item"><span class="val">1 pc</span><span class="lbl">Serve Size</span></div></div>
+  </div>
+</div>
+
+<div class="reviews">
+  <h3>What Our Customers Say</h3>
+  <div class="review-list"><div class="review-card"><p>"Flakiest pastry I've ever had. The cream inside is absolutely dreamy."</p><span class="reviewer">— Ananya M.</span></div><div class="review-card"><p>"Goes perfectly with garden tea. A match made in heaven!"</p><span class="reviewer">— Rajan V.</span></div></div>
+</div>
+
+<div class="secret-zone">
+  <button class="event-btn" onclick="window.location.href='secret_puffs.html'">event</button>
+</div>
+
+
+<footer>
+  <div>
+    <h4>LEO BAKERY</h4>
+    <p>A cozy corner where great coffee meets freshly baked goodness. We believe food brings people together.</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <a href="index.html">Home</a>
+    <a href="index.html#menu">Menu</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div>
+  <div>
+    <h4>Visit Us</h4>
+    <p>📍 12 Baker Street, Tiruppur</p>
+    <p>⏰ Mon–Sat: 7am – 9pm</p>
+    <p>📞 +91 98765 43210</p>
+  </div>
+  <div class="footer-bottom">© 2026 LEO BAKERY. All rights reserved. Made with ❤️ and flour.</div>
+</footer>
+
+
+<script>
+  let qty = 1;
+  function changeQty(d) {
+    qty = Math.max(1, qty + d);
+    document.getElementById('qty').textContent = qty;
+  }
+</script>
+</body>
+</html>
